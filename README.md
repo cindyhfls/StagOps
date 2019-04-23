@@ -1,7 +1,7 @@
 # StagOps
 code pertaining to the StagOps task in Strait et al., 2015
 
-// Content 
+<h3> --Index-- </h3>
 
 % wrapper
 1. main_wrap_plexon_stagops.m {wrap from plexons sorted MAT files}
