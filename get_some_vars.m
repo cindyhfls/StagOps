@@ -24,7 +24,7 @@ V.vars(vars(:,7)==1,16) = vars(vars(:,7)==1,3);
 V.vars(vars(:,7)~=1,16) = vars(vars(:,7)~=1,6);
 % probR
 V.vars(vars(:,7)==1,17) = vars(vars(:,7)==1,4);
-V.vars(vars(:,7)~=1,17) = vars(vars(:,7)~=10,1);
+V.vars(vars(:,7)~=1,17) = vars(vars(:,7)~=1,1);
 % offerR
 V.vars(vars(:,7)==1,18) = vars(vars(:,7)==1,5);
 V.vars(vars(:,7)~=1,18) = vars(vars(:,7)~=1,2);
