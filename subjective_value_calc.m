@@ -43,13 +43,13 @@ startPoints = [5 0.2]; % initial guess
 
 fit_x = nanmean(x,2);%x(:); %
 fit_y = nanmean(p_2,2); %p_2(:);
-w = ones(size(fit_y));w(fit_y==1|fit_y==0) = 0.1;
-f1 = fit(fit_x,fit_y,log_curve,'Start', startPoints,'Exclude',isnan(fit_y),'Weights',w);
+w = ones(size(fit_y));w(fit_y==1|fit_y==0) = 0.5;
+f1 = fit(fit_x,fit_y,log_curve,'Start', startPoints,'Exclude',isnan(fit_y),'Weights',w,'Lower',[0 0],'Upper',[50 1]);
 
 fit_x = nanmean(x,2);%x(:);
 fit_y = nanmean(p_3,2);%p_3(:);
-w = ones(size(fit_y));w(fit_y==1|fit_y==0) = 0.1;
-f2 = fit(fit_x,fit_y,log_curve,'Start', startPoints,'Exclude',isnan(fit_y),'Weights',w);
+w = ones(size(fit_y));w(fit_y==1|fit_y==0) = 0.5;
+f2 = fit(fit_x,fit_y,log_curve,'Start', startPoints,'Exclude',isnan(fit_y),'Weights',w,'Lower',[0 0],'Upper',[50 1]);
 
 sv_2 = 1/f1.x0;
 sv_3 = 1/f2.x0;
@@ -68,8 +68,9 @@ if plot_on
     h(2) = plot(0:0.05:1,real_curve,'b-');
     text(0.6,0.3,sprintf('subjective value 2 over safe = %2.2f',sv_2));
     text(0.6,0.27,sprintf('subjective value 3 over safe = %2.2f',sv_3));
-    legend(h,'P(choosing 3 over safe)','P(choosing 2 over safe)','location','SE');
+    legend(h,'P(choosing 2 over safe)','P(choosing 3 over safe)','location','SE');
     xlabel('probability of gamble reward');
     ylabel('probability of chosing to gamble');
 end
+
 end
